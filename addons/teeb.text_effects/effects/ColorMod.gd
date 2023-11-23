@@ -1,4 +1,4 @@
-tool
+@tool
 extends RichTextEffect
 
 
@@ -8,7 +8,7 @@ var bbcode = "colormod"
 
 func _process_custom_fx(char_fx):
 	var t = smoothstep(0.3, 0.6, sin(char_fx.elapsed_time * 4.0) * .5 + .5)
-	char_fx.color = lerp(char_fx.color, Color.blue, t)
+	char_fx.color = lerp(char_fx.color, Color.BLUE, t)
 	
 #	char_fx.color.a -= RandUtil.noise(char_fx.elapsed_time * 8.0) * .5# sin(char_fx.elapsed_time * 16.0) * .5 + .5
 #	var hsv = ColorUtil.color_to_hsv(char_fx.color)

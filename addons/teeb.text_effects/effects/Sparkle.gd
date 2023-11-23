@@ -1,4 +1,4 @@
-tool
+@tool
 extends RichTextEffect
 
 
@@ -20,11 +20,11 @@ static func lerp_list(a:Array, t:float):
 func get_color(s) -> Color:
 	if s is Color: return s
 	elif s[0] == '#': return Color(s)
-	else: return ColorN(s)
+	else: return Color.from_string(s, Color.BLACK)
 
 
 func get_rand_unclamped(char_fx):
-	return char_fx.character * 33.33 + char_fx.absolute_index * 4545.5454
+	return char_fx.glyph_index * 33.33 + char_fx.range.x * 4545.5454
 
 
 func _process_custom_fx(char_fx):

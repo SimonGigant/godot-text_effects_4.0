@@ -1,14 +1,13 @@
-tool
+@tool
 extends RichTextEffect
 
 
 # Syntax: [nervous scale=1.0 freq=8.0][/nervous]
 var bbcode = "nervous"
 
-const SPLITTERS = [ord(" "), ord("."), ord(","), ord("-")]
+var SPLITTERS = [GlyphConverter.ord(" "), GlyphConverter.ord("."), GlyphConverter.ord(","), GlyphConverter.ord("-")]
 
 var _word = 0.0
-
 
 func _process_custom_fx(char_fx):
 	if char_fx.relative_index == 0:
@@ -17,7 +16,7 @@ func _process_custom_fx(char_fx):
 	var scale:float = char_fx.env.get("scale", 1.0)
 	var freq:float = char_fx.env.get("freq", 8.0)
 
-	if char_fx.character in SPLITTERS:
+	if char_fx.glyph_count in SPLITTERS:
 		_word += 1
 	
 	var s = fmod((_word + char_fx.elapsed_time) * PI * 1.25, PI * 2.0)

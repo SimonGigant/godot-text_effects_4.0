@@ -1,4 +1,4 @@
-tool
+@tool
 extends "res://addons/teeb.text_transitions/transitions/TransitionBase.gd"
 
 
